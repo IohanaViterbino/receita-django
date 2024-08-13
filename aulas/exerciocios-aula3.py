@@ -18,3 +18,12 @@ for i in range(4):
         maior = num
 print(f"O maior valor fornecido foi {maior}")
 
+# maiusculo
+texto = input("Insira um texto: ")
+print("O texto em maiúsculo é: ",texto.upper())
+
+# caracter
+texto_entrada = input("Insira um texto: ")
+caractere = input("Insira o caractere a ser encontrado: ")
+
+print(f"O caractere '{caractere}' foi encontrado {texto_entrada.count(caractere)} vezes no texto fornecido")
