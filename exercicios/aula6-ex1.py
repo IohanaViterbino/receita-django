@@ -25,6 +25,8 @@ class Produto:
     def mostrar_quantidade(self):
         print(f"A quantidade de produtos em estoque são de {Produto.qtdProd}")    
 
+class GerenciadorProdutos:
+    estoqueProdutos = []
         
 if __name__ == "__main__":
     prod1 = Produto(cod=12457, preco=23.65)
