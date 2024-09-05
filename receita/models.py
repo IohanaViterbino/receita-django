@@ -11,13 +11,13 @@ class Recipe(models.Model):
     modo_preparo = models.TextField(null=False, blank=False)
     tempo_preparo = models.IntegerField(null=False, blank=False)
     publicado = models.BooleanField(default=False)
-    categoria = models.ForeignKey(to=Category, on_delete=models.SET_NULL, null=True, blank=False, related_name='receita')
+    fk_categoria = models.ForeignKey(to=Category, on_delete=models.SET_NULL, null=True, blank=False, related_name='receita')
     autor = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False, blank=False, related_name='receita')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class Rating(models.Model):
     comentario = models.TextField(null=True, blank=True)
-    usuario = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='classificao')
-    receita = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='classificao')
-    nota = models.PositiveSmallIntegerField(choices=[(i, str(i)) for i in range(1, 6)])
+    fk_usuario = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='classificao')
+    fk_receita = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='classificao')
+    nota = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])
