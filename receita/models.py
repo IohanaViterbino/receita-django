@@ -9,7 +9,7 @@ class Recipe(models.Model):
     descricao = models.TextField(null=True, blank=True)
     ingredientes = models.TextField(null=False, blank=False)
     modo_preparo = models.TextField(null=False, blank=False)
-    tempo_preparo = models.IntegerField(null=False, blank=False)
+    tempo_preparo = models.TimeField(null=False, blank=False)
     publicado = models.BooleanField(default=False)
     fk_categoria = models.ForeignKey(to=Category, on_delete=models.SET_NULL, null=True, blank=False, related_name='recipe')
     autor = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False, blank=False, related_name='recipe')
