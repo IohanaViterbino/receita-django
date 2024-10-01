@@ -31,6 +31,8 @@ class Avaliacao(models.Model):
     fk_usuario = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='rating')
     fk_receita = models.ForeignKey(Receita, on_delete=models.CASCADE, related_name='rating')
     nota = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return self.comentario
