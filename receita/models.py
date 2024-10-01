@@ -20,7 +20,7 @@ class Receita(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def get_categorias(self):
-        return ", ".join([tag.tag_name for tag in self.categorias.all()])
+        return ", ".join([categoria.nome for categoria in self.fk_categoria.all()])
     get_categorias.short_description = 'categorias' 
 
     def __str__(self):
