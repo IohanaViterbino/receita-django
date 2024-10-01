@@ -10,6 +10,7 @@ class CategoriaAdmin(admin.ModelAdmin):
 class ReceitaAdmin(admin.ModelAdmin):
     list_display = ('id', 'titulo', 'publicado', 'autor', 'get_categorias')
     list_filter = ['autor', 'publicado']
+    list_editable = ('publicado',)
     list_display_links = ('id', 'titulo')
     search_fields = ('titulo', 'autor',)
 
