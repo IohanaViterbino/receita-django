@@ -1,11 +1,11 @@
 from django.contrib import admin
-from receita.models import Categoria, Receita, Avaliacao
+from receita.models import Categoria, Receita, Avaliacao, User
 
 # Corrigindo o nome das classes de admin para seguir a convenção de nomenclatura
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nome')
-    list_display_links = ('id', 'nome')
-    search_fields = ('nome',)
+    list_display = ('id', 'categoria')
+    list_display_links = ('id', 'categoria')
+    search_fields = ('categoria',)
 
 class ReceitaAdmin(admin.ModelAdmin):
     list_display = ('id', 'titulo', 'publicado', 'autor', 'get_categorias')
@@ -24,3 +24,4 @@ class AvaliacaoAdmin(admin.ModelAdmin):
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Receita, ReceitaAdmin)
 admin.site.register(Avaliacao, AvaliacaoAdmin)
+admin.site.register(User)
